@@ -36,7 +36,7 @@ function toggleDone(todo: Todo) {
 </script>
 
 <template>
-  <div class="">
+  <div class="max-h-full max-w-full">
     <div
       class="flex bg-slate-900 items-center justify-center h-12 text-center mb-3"
     >
@@ -44,16 +44,16 @@ function toggleDone(todo: Todo) {
     </div>
 
     <Transition name="slide" mode="in-out" appear>
-      <div class="flex flex-row mx-auto my-4 justify-center">
+      <div class="flex flex-row flex-shrink mx-auto my-4 justify-center">
         <form @submit.prevent="addTodo" class="flex">
           <input
             type="text"
             v-model="todo"
-            class="rounded-md flex-1 w-96 mr-1"
+            class="rounded-md flex-1 max-w-xs mr-1"
           />
           <button class="btn" type="submit">Add</button>
         </form>
-        <button class="btn" @click="clearDone">Clear Done</button>
+        <button class="btn" @click="clearDone">Clear</button>
       </div>
     </Transition>
     <TodoVue :todos="todos" :toggleDone="toggleDone" :removeTodo="removeTodo" />
